@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardView"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myCustomLayout">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/title" android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                android:hint="@string/app_name"
+                android:textSize="18sp"
+                android:textStyle="bold" android:textColor="#161515"
+                android:maxLines="1" android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@+id/thumb" android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/thumb"/>
+
+        <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/thumb"
+        />
+        <TextView
+                android:text="Sample location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/address"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:maxLines="2"
+                android:ellipsize="end" app:layout_constraintStart_toEndOf="@+id/locIcon"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toTopOf="@+id/locIcon" app:layout_constraintBottom_toBottomOf="@+id/locIcon"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/ratingBar"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintStart_toEndOf="@+id/thumb"
+                android:layout_marginStart="16dp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:max="5"
+                android:numStars="5"
+                android:rating="1"
+                android:isIndicator="true"/>
+        <TextView
+                android:text="Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food, Thai is my favourite food"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/cuisines" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar" app:layout_constraintStart_toEndOf="@+id/thumb"
+                android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" android:maxLines="2" android:ellipsize="end"
+                android:textColor="@color/cuisines_txt_color" android:textSize="12sp"/>
+        <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp" app:srcCompat="@drawable/location"
+                android:id="@+id/locIcon"
+                android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/avgCostTitle" android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"/>
+        <TextView
+                android:text="Avg cost for two : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/avgCostTitle"
+                app:layout_constraintTop_toBottomOf="@+id/thumb" android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:textColor="#D3302D2D"/>
+        <TextView
+                android:text="1234"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/costForTwo"
+                app:layout_constraintTop_toTopOf="@+id/avgCostTitle"
+                app:layout_constraintBottom_toBottomOf="@+id/avgCostTitle"
+                app:layout_constraintStart_toEndOf="@+id/avgCostTitle" android:layout_marginStart="4dp"
+                android:textColor="#D3302D2D"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

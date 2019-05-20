@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RestaurantsInfo</string>
+    <string name="api_key">ee6d3ff764b58bd0286a431a3ae0e9b2</string>
+    <string name="delivery_unavailable">Delivery unavailable</string>
+    <string name="delivery_available">Delivery available</string>
+    <string name="not_delivering">currently offline for Delivery</string>
+    <string name="locationTxt">%1$s, %2$s, %3$s</string>
+</resources>
