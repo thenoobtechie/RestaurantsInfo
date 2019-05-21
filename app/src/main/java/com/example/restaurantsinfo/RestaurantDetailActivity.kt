@@ -18,6 +18,8 @@ import android.view.View
 import android.widget.TextView
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
+import java.lang.Exception
 
 
 class RestaurantDetailActivity : AppCompatActivity(), Handler.Callback, View.OnClickListener {
@@ -27,7 +29,12 @@ class RestaurantDetailActivity : AppCompatActivity(), Handler.Callback, View.OnC
             R.id.zomatoLink -> {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(viewModel?.restaurant?.deeplink)
-                startActivity(intent)
+
+                try {
+                    startActivity(intent)
+                }catch (e: Exception){
+                    Toast.makeText(applicationContext, "Zomato app not installed", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
