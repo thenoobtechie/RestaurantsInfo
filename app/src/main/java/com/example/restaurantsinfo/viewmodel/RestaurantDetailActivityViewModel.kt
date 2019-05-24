@@ -22,11 +22,9 @@ class RestaurantDetailActivityViewModel(application: Application, var resId : St
 
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
         apiManager = retrofit.create(ApiManager::class.java)
-
-        fetchRestaurant()
     }
 
-    private fun fetchRestaurant() {
+    public fun fetchRestaurant() {
 
         apiManager?.fetchRestaurant(resId)!!.enqueue(object : Callback<Restaurant>{
 

@@ -18,11 +18,79 @@ import android.view.View
 import android.widget.TextView
 import android.content.Intent
 import android.net.Uri
+import android.transition.TransitionInflater
 import android.widget.Toast
+import com.example.restaurantsinfo.Utility.IMAGE_URL
+import com.example.restaurantsinfo.Utility.RESTAURANT
+import com.example.restaurantsinfo.model.Restaurant
 import java.lang.Exception
+import kotlin.math.absoluteValue
 
 
 class RestaurantDetailActivity : AppCompatActivity(), Handler.Callback, View.OnClickListener {
+
+    var resId : String = ""
+    var viewModel : RestaurantDetailActivityViewModel? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_restaurant_detail)
+
+
+        setDrawbleColor(zomatoLink, R.color.blue_txt)
+        if (intent.hasExtra(RESTAURANT_ID)) resId = intent.getStringExtra(RESTAURANT_ID)
+
+        val restaurant : Restaurant? = intent.getParcelableExtra(RESTAURANT)
+
+        /*viewModel = ViewModelProviders.of(this, RestaurantDetailViewModelFactory(application, resId, this))
+            .get(RestaurantDetailActivityViewModel::class.java)*/
+
+        zomatoLink.setOnClickListener(this)
+
+        getWindow().sharedElementEnterTransition = TransitionInflater.from(this)
+            .inflateTransition(R.transition.shared_element_transation);
+
+//        viewModel?.fetchRestaurant()
+
+
+        restaurant?.let {
+            //If restaurant is not null
+            //else whatever is after ?:
+
+            name.text = restaurant.name
+            ratingBar.rating = restaurant.userRating.aggregateRating.let { it } ?: 0f
+            cuisines.text = restaurant.cuisines
+            avgCostForTwo.text = restaurant.avgCostForTwo.toString()
+            address.text = restaurant.location.address
+            loadImage(restaurant.thumb, image, 500)
+
+            if (restaurant.hasOnlineDelivery == 1 && restaurant.isDeliveringNow == 1) {
+                deliveryInfo.text = getString(R.string.delivery_available)
+                setDrawbleColor(deliveryInfo, R.color.green)
+            }
+            else if (restaurant.hasOnlineDelivery == 1)
+            {
+                deliveryInfo.text = getString(R.string.not_delivering)
+                setDrawbleColor(deliveryInfo, R.color.grey)
+            }
+            else
+            {
+                deliveryInfo.text = getString(R.string.delivery_unavailable)
+                setDrawbleColor(deliveryInfo, R.color.red)
+            }
+
+        } ?: Toast.makeText(applicationContext, "Restaurant is null", Toast.LENGTH_SHORT).show()
+
+
+
+
+//        val restaurant = viewModel?.restaurant
+//        emptyLayout.visibility = GONE
+
+
+    }
+
+
     override fun onClick(v: View?) {
 
         when(v?.id){
@@ -39,35 +107,9 @@ class RestaurantDetailActivity : AppCompatActivity(), Handler.Callback, View.OnC
         }
     }
 
-    var resId : String = ""
-    var viewModel : RestaurantDetailActivityViewModel? = null
-
     override fun handleMessage(msg: Message?): Boolean {
 
-        val restaurant = viewModel?.restaurant
-        name.text = restaurant?.name
-        ratingBar.rating = restaurant?.userRating?.aggregateRating!!
-        cuisines.text = restaurant.cuisines
-        avgCostForTwo.text = restaurant.avgCostForTwo.toString()
-        address.text = restaurant.location.address
-        loadImage(restaurant.thumb, image, 500)
 
-        if (restaurant.hasOnlineDelivery == 1 && restaurant.isDeliveringNow == 1){
-            deliveryInfo.text = getString(R.string.delivery_available)
-            setDrawbleColor(deliveryInfo, R.color.green)
-        }
-        else if (restaurant.hasOnlineDelivery == 1)
-            {
-                deliveryInfo.text = getString(R.string.not_delivering)
-                setDrawbleColor(deliveryInfo, R.color.grey)
-            }
-        else
-            {
-                deliveryInfo.text = getString(R.string.delivery_unavailable)
-                setDrawbleColor(deliveryInfo, R.color.red)
-            }
-
-        emptyLayout.visibility = GONE
         return true
     }
 
@@ -83,19 +125,7 @@ class RestaurantDetailActivity : AppCompatActivity(), Handler.Callback, View.OnC
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_restaurant_detail)
-
-
-        setDrawbleColor(zomatoLink, R.color.blue_txt)
-        if (intent.hasExtra(RESTAURANT_ID)) resId = intent.getStringExtra(RESTAURANT_ID)
-
-        viewModel = ViewModelProviders.of(this, RestaurantDetailViewModelFactory(application, resId, this))
-            .get(RestaurantDetailActivityViewModel::class.java)
-
-        zomatoLink.setOnClickListener(this)
-
-
+    override fun onBackPressed() {
+        finishAfterTransition()
     }
 }

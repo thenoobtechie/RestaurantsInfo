@@ -7,6 +7,8 @@ import kotlinx.android.synthetic.main.restaurant_list_item.view.*
 
 
 const val RESTAURANT_ID = "restaurantId"
+const val RESTAURANT = "restaurant"
+const val IMAGE_URL = "imageUrl"
 const val BASE_URL = "https://developers.zomato.com/api/v2.1/"
 
 fun loadImage(url : String, iv : ImageView) {
