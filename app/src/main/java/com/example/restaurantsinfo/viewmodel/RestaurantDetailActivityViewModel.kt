@@ -1,7 +1,7 @@
 package com.example.restaurantsinfo.viewmodel
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import android.os.Handler
 import android.widget.Toast
 import com.example.restaurantsinfo.Utility.BASE_URL
@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RestaurantDetailActivityViewModel(application: Application, var resId : String, var onResponseCallback: Handler.Callback) : AndroidViewModel(application) {
 
     var apiManager : ApiManager? = null
-    var restaurant : Restaurant? = null
+    lateinit var restaurant : Restaurant
 
     init {
 
@@ -30,7 +30,7 @@ class RestaurantDetailActivityViewModel(application: Application, var resId : St
 
             override fun onResponse(call: Call<Restaurant>, response: Response<Restaurant>) {
                 if (response.isSuccessful){
-                    restaurant = response.body()
+                    response.body()?.let { restaurant = it }
                     onResponseCallback.handleMessage(null)
                 }
             }

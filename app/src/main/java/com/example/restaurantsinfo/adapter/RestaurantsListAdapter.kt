@@ -1,7 +1,7 @@
 package com.example.restaurantsinfo.adapter
 
-import android.support.v4.util.Pair
-import android.support.v7.widget.RecyclerView
+import androidx.core.util.Pair
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.restaurant_list_item.view.name
 import kotlinx.android.synthetic.main.restaurant_list_item.view.ratingBar
 
 
-class RestaurantsListAdapter(var restaurantsList : List<RestaurantWrapper>, var clickListener: RecyclerViewItemClickListener) : RecyclerView.Adapter<CustomViewHolder>() {
+class RestaurantsListAdapter(var restaurantsList : List<RestaurantWrapper>, var clickListener: RecyclerViewItemClickListener) : androidx.recyclerview.widget.RecyclerView.Adapter<CustomViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -32,7 +32,7 @@ class RestaurantsListAdapter(var restaurantsList : List<RestaurantWrapper>, var 
     }
 }
 
-class CustomViewHolder(itemView : View, var clickListener: RecyclerViewItemClickListener) : RecyclerView.ViewHolder(itemView) {
+class CustomViewHolder(itemView : View, var clickListener: RecyclerViewItemClickListener) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     var restaurant : Restaurant? = null
     var pair1 : Pair<View, String>? = null

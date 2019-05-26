@@ -1,8 +1,8 @@
 package com.example.restaurantsinfo.viewmodel.factory
 
 import android.app.Application
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import android.os.Handler
 import com.example.restaurantsinfo.viewmodel.MainActivityViewModel
 

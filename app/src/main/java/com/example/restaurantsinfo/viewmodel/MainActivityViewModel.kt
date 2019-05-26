@@ -2,7 +2,7 @@ package com.example.restaurantsinfo.viewmodel
 
 import android.Manifest
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.location.Location
 import android.os.Build
