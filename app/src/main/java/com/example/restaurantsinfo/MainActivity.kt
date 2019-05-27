@@ -57,17 +57,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewItemClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val imgContainerView = restaurantsList
-        val androidRobotView = restaurantsList
-
-        // inside your activity (if you did not enable transitions in your theme)
-        /*with(window) {
-            requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-
-            // set an exit transition
-            exitTransition = Explode()
-        }*/
-
         setContentView(R.layout.activity_main)
 
         initLocationServices()
@@ -114,20 +103,14 @@ class MainActivity : AppCompatActivity(), RecyclerViewItemClickListener,
 
     override fun onListItemClick(v: View, restaurant: Restaurant?, vararg pair: Pair<View, String>?) {
 
+        //SharedElement Transition
         val optionsCompat : ActivityOptionsCompat =
             ActivityOptionsCompat.makeSceneTransitionAnimation(this, *pair)
 
         val intent = Intent(applicationContext, RestaurantDetailActivity::class.java)
         intent.putExtra(RESTAURANT_ID, restaurant!!.id)
         intent.putExtra(RESTAURANT, restaurant)
-//        startActivity(intent)
         startActivity(intent, optionsCompat.toBundle())
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        /*connectGoogleApiClient()*/
     }
 
     fun connectGoogleApiClient(){
@@ -210,8 +193,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewItemClickListener,
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(applicationContext)
 
         connectGoogleApiClient()
-//        updateUIWithLocation(fusedLocationProviderClient?.lastLocation)
-
 
     }
 

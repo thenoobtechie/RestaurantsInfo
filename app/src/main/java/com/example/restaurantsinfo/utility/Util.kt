@@ -1,9 +1,8 @@
-package com.example.restaurantsinfo.Utility
+package com.example.restaurantsinfo.utility
 
 import android.widget.ImageView
 import com.example.restaurantsinfo.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.restaurant_list_item.view.*
 
 
 const val RESTAURANT_ID = "restaurantId"
