@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import android.os.Handler
 import android.widget.Toast
-import com.example.restaurantsinfo.Utility.BASE_URL
+import com.example.restaurantsinfo.utility.BASE_URL
 import com.example.restaurantsinfo.api.ApiManager
 import com.example.restaurantsinfo.model.Restaurant
 import retrofit2.Call

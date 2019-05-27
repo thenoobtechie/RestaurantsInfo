@@ -1,11 +1,10 @@
 package com.example.restaurantsinfo.adapter
 
 import androidx.core.util.Pair
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.restaurantsinfo.Utility.loadImage
+import com.example.restaurantsinfo.utility.loadImage
 import com.example.restaurantsinfo.model.Restaurant
 import com.example.restaurantsinfo.model.RestaurantWrapper
 import kotlinx.android.synthetic.main.restaurant_list_item.view.*

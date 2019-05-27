@@ -2,8 +2,6 @@ package com.example.restaurantsinfo
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.ActivityOptions
 import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
@@ -23,8 +21,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
-import com.example.restaurantsinfo.Utility.RESTAURANT
-import com.example.restaurantsinfo.Utility.RESTAURANT_ID
+import com.example.restaurantsinfo.utility.RESTAURANT
+import com.example.restaurantsinfo.utility.RESTAURANT_ID
 import com.example.restaurantsinfo.adapter.RecyclerViewItemClickListener
 import com.example.restaurantsinfo.adapter.RestaurantsListAdapter
 import com.example.restaurantsinfo.model.Restaurant
@@ -36,7 +34,6 @@ import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
-import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), RecyclerViewItemClickListener,

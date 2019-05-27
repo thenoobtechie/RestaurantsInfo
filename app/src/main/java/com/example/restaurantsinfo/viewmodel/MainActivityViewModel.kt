@@ -1,19 +1,14 @@
 package com.example.restaurantsinfo.viewmodel
 
-import android.Manifest
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.location.Location
-import android.os.Build
 import android.os.Handler
 import android.widget.Toast
-import com.example.restaurantsinfo.Utility.BASE_URL
+import com.example.restaurantsinfo.utility.BASE_URL
 import com.example.restaurantsinfo.api.ApiManager
 import com.example.restaurantsinfo.model.CustomResponse
 import com.example.restaurantsinfo.model.RestaurantWrapper
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.location.LocationRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

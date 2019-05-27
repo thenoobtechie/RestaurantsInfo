@@ -11,20 +11,16 @@ import android.os.Message
 import android.transition.TransitionInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import android.view.View.GONE
 import android.widget.TextView
 import android.widget.Toast
-import com.example.restaurantsinfo.Utility.RESTAURANT_ID
-import com.example.restaurantsinfo.Utility.loadImage
+import com.example.restaurantsinfo.utility.RESTAURANT_ID
+import com.example.restaurantsinfo.utility.loadImage
 import com.example.restaurantsinfo.viewmodel.RestaurantDetailActivityViewModel
 import com.example.restaurantsinfo.viewmodel.factory.RestaurantDetailViewModelFactory
 import kotlinx.android.synthetic.main.activity_restaurant_detail.*
 import androidx.core.content.ContextCompat
-import com.example.restaurantsinfo.Utility.IMAGE_URL
-import com.example.restaurantsinfo.Utility.RESTAURANT
-import com.example.restaurantsinfo.model.Restaurant
+import com.example.restaurantsinfo.utility.RESTAURANT
 import java.lang.Exception
-import kotlin.math.absoluteValue
 
 
 class RestaurantDetailActivity : AppCompatActivity(), Handler.Callback, View.OnClickListener {
